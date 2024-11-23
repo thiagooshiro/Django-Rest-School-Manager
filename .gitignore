@@ -1,0 +1,39 @@
+# Django
+*.log
+*.pot
+*.pyc
+*.pyo
+__pycache__/
+db.sqlite3
+
+# Diretórios de migração
+*/*/migrations/*
+*/migrations/*
+!*/migrations/__init__.py
+
+# Arquivos de configuração do Django
+*.db
+*.sqlite3
+
+# Ambiente virtual
+venv/
+.env/
+*.env
+
+# Arquivos do sistema operacional
+.DS_Store
+Thumbs.db
+
+# Arquivos de IDE (se você estiver usando um IDE como VSCode, PyCharm, etc.)
+.vscode/
+.idea/
+
+# Arquivos gerados pelo Python
+*.pyc
+*.pyo
+
+# Arquivos de log
+*.log
+
+# Cache de arquivos temporários
+*.swp
