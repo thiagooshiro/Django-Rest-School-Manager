@@ -279,3 +279,23 @@ Status `204 No Content` indicando que o estudante foi deletado com sucesso.
 ## Licença
 
 O uso deste projeto é livre para fins de **estudo** e **prática**. No entanto, não há garantia de qualquer tipo quanto à funcionalidade ou à manutenção. Sinta-se à vontade para usar e modificar o código dentro desses limites.
+
+
+### Links Úteis:
+
+Django Rest Framework - Documentação Oficial
+
+https://www.django-rest-framework.org/
+A documentação oficial do DRF é a melhor fonte para aprender o framework. Ela oferece tutoriais completos, exemplos de código e detalha cada parte da biblioteca.
+Real Python - Django REST Framework Tutorial
+
+https://realpython.com/django-rest-framework-quick-start/
+O Real Python é um excelente site de tutoriais de Python, e este tutorial oferece uma introdução ao DRF com uma explicação clara sobre como construir APIs RESTful.
+TestDriven.io - Django REST Framework Series
+
+https://testdriven.io/blog/
+O TestDriven.io oferece diversos tutoriais práticos focados em testes e desenvolvimento de APIs com Django e DRF, muito útil para quem deseja aprender as boas práticas de desenvolvimento.
+Dev.to - Django REST Framework Tutorials
+
+https://dev.to/t/django
+A plataforma Dev.to tem uma comunidade ativa de desenvolvedores. Você pode encontrar vários tutoriais de DRF compartilhados por outros desenvolvedores, que vão desde conceitos básicos até tópicos mais avançados.
