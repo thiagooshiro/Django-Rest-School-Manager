@@ -7,7 +7,7 @@ class Student(models.Model):
     registration_number = models.CharField(max_length=20, unique=True)
     email = models.EmailField(unique=True)
     date_of_birth = models.DateField()
-    # school = models.ForeignKey('School', on_delete=models.CASCADE, related_name='students')
+    profile_picture = models.ImageField(upload_to='profile_pics/', blank=True, null=True)  # Adiciona o campo de imagem
 
     def clean(self):
         # Verificar se a data de nascimento é no futuro

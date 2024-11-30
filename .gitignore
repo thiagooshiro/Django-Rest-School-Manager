@@ -19,6 +19,7 @@ db.sqlite3
 venv/
 .env/
 *.env
+*.venv
 
 # Arquivos do sistema operacional
 .DS_Store

@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -157,3 +159,11 @@ SIMPLE_JWT = {
     'AUDIENCE': None,  # Se você usar audiências
     'ISSUER': None,  # Se você quiser usar um emissor específico
 }
+
+
+## Alterações pra adicionar arquivo de imagem:# settings.py
+
+
+# Diretório onde os arquivos de mídia serão armazenados
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

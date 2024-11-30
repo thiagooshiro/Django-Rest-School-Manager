@@ -6,7 +6,7 @@ from django.utils.timezone import now
 class StudentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Student
-        fields = ['id', 'name', 'registration_number', 'email', 'date_of_birth' ]
+        fields = ['id', 'name', 'registration_number', 'email', 'date_of_birth', 'profile_picture' ]
 
     def validate_date_of_birth(self, value):
         """
