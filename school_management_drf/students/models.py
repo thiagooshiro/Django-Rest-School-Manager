@@ -8,7 +8,7 @@ class Student(models.Model):
     registration_number = models.CharField(max_length=20, unique=True)
     email = models.EmailField(unique=True)
     date_of_birth = models.DateField()
-    profile_picture = models.ImageField(upload_to='profile_pics/', blank=True, null=True)  # Adiciona o campo de imagem
+    profile_picture = models.ImageField(upload_to=f'profile_pics/{registration_number}/', blank=True, null=True)  # Adiciona o campo de imagem
     courses = models.ManyToManyField(Course, related_name='students', blank=True)  # Relaciona com o modelo Course
 
     def clean(self):
