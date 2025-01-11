@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudantes - Sistema de Gestão Escolar</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Gestão de Estudantes</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="courses.html">Cursos</a></li>
+                <li><a href="teachers.html">Professores</a></li>
+                <li><a href="#" onclick="logout()">Sair</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Listar Estudantes</h2>
+        <button onclick="fetchStudents()">Carregar Estudantes</button>
+        <ul id="students-list"></ul>
+
+        <h2>Cadastrar Novo Estudante</h2>
+        <form id="register-student-form">
+            <input type="text" id="student-name" placeholder="Nome do Estudante" required />
+            <input type="email" id="student-email" placeholder="Email do Estudante" required />
+            <button type="button" onclick="registerStudent()">Cadastrar</button>
+            <p id="register-student-message"></p>
+        </form>
+    </main>
+
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
+
+<script>
+// Verificar se o token JWT está presente no localStorage
+if (!localStorage.getItem('access_token')) {
+    // Se não estiver autenticado, redireciona para a página de login
+    window.location.href = '/login.html';
+}
+
+function fetchStudents() {
+    const token = localStorage.getItem('access_token');
+
+    fetch('http://localhost:8000/api/students/', {
+        headers: {
+            'Authorization': `Bearer ${token}`,
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        const studentsList = document.getElementById('students-list');
+        studentsList.innerHTML = '';  // Limpa a lista existente
+        data.forEach(student => {
+            const li = document.createElement('li');
+            li.textContent = `${student.name} - ${student.email}`;
+            studentsList.appendChild(li);
+        });
+    })
+    .catch(error => console.error('Erro ao carregar estudantes:', error));
+}
+
+function registerStudent() {
+    const token = localStorage.getItem('access_token');
+    const name = document.getElementById('student-name').value;
+    const email = document.getElementById('student-email').value;
+
+    fetch('http://localhost:8000/api/students/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+            name: name,
+            email: email
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('register-student-message').textContent = 'Estudante cadastrado com sucesso!';
+        document.getElementById('register-student-form').reset(); // Limpar o formulário
+        fetchStudents(); // Atualizar a lista de estudantes
+    })
+    .catch(error => {
+        document.getElementById('register-student-message').textContent = 'Erro ao cadastrar estudante!';
+        console.error('Erro ao cadastrar estudante:', error);
+    });
+}
+
+function logout() {
+    localStorage.removeItem('access_token');
+    window.location.href = '/login.html';
+}
+</script>
