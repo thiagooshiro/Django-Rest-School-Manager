@@ -1,6 +1,3 @@
-Claro! Vou atualizar o `README.md` com as sugestões que você mencionou. Aqui está a versão melhorada:
-
-```markdown
 # Django Rest School Manager
 
 Este projeto é um sistema de gestão escolar desenvolvido com Django e Django REST Framework (DRF), permitindo a criação e gerenciamento de usuários e estudantes via API RESTful. Ele também inclui autenticação via tokens JWT.
